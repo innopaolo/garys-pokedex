@@ -10,9 +10,7 @@ function PokemonList({ pokemonData }) {
           key={pokemon.id}
           name={pokemon.name.english}
           image="https://raw.githubusercontent.com/fanzeyi/pokemon.json/master/thumbnails/001.png"
-          type={pokemon.type[1] 
-                ? pokemon.type[0] + ', ' + pokemon.type[1] 
-                : pokemon.type[0]}
+          type={pokemon.type[0]}
         />
       ))}
     </div>
