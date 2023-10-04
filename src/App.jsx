@@ -9,6 +9,7 @@ function App() {
   const [searchTerm, setSearchTerm] = useState('');
   const [filterType, setFilterType] = useState('');
 
+  // Filtering by search term
    const handleSearch = (term) => {
     setSearchTerm(term);
     // Perform search logic here and update filteredData accordingly
@@ -21,7 +22,8 @@ function App() {
   // Filtering by pokemon type
   const handleFilter = (type) => {
     setFilterType(type);
-    // Perform filtering logic here and update filteredData accordingly
+    console.log(type);
+    // Perform filtering logic on wether all pokemon should show or just the type
     const filteredResults = dummyPokemonData.filter((pokemon) =>
       type === '' || pokemon.type.includes(type)
     );
@@ -36,7 +38,11 @@ function App() {
         <p>(that stupid Ash Ketchum can&apos;t afford Ha Ha!)</p>
       </div>
       <FilterBar onSearch={handleSearch} onFilter={handleFilter} />
-      <PokemonList pokemonData={dummyPokemonData} />
+      {filteredData.length === 0 ? (
+        <p>&nbsp;&nbsp;No Pokémon found!</p>
+      ) : (
+        <PokemonList pokemonData={filteredData} />
+      )}
     </div>
   );
 }

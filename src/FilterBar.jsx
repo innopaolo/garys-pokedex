@@ -6,12 +6,12 @@ function FilterBar({ onSearch, onFilter }) {
 
   const handleSearchChange = (e) => {
     setSearchTerm(e.target.value);
-    console.log(e.target.value)
   };
 
   const handleFilterChange = (e) => {
+    const firstLetterCapital = e.target.value.charAt(0).toUpperCase() + e.target.value.slice(1);
     setFilterType(e.target.value);
-    onFilter(e.target.value);
+    onFilter(firstLetterCapital);
   };
 
   const handleSubmit = (e) => {
