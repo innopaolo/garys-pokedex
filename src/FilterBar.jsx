@@ -6,7 +6,7 @@ function FilterBar({ onSearch, onFilter }) {
 
   const handleSearchChange = (e) => {
     setSearchTerm(e.target.value);
-    onSearch(e.target.value);
+    console.log(e.target.value)
   };
 
   const handleFilterChange = (e) => {
@@ -14,15 +14,23 @@ function FilterBar({ onSearch, onFilter }) {
     onFilter(e.target.value);
   };
 
+  const handleSubmit = (e) => {
+    e.preventDefault(); 
+    onSearch(searchTerm);
+  };
+
   return (
     <div className="filter-bar">
-      <input
-        type="text"
-        placeholder="Search by name"
-        value={searchTerm}
-        onChange={handleSearchChange}
-      />
-      <select value={filterType} onChange={handleFilterChange}>
+      <form onSubmit={handleSubmit}>
+        <input
+            type="text"
+            placeholder="Search by name"
+            value={searchTerm}
+            onChange={handleSearchChange}
+        />
+        <button>Search</button>
+      </form> 
+      Sort by type <select value={filterType} onChange={handleFilterChange}>
         <option value="">All Types</option>
         <option value="normal">Normal</option>
         <option value="fire">Fire</option>
