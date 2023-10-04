@@ -61,18 +61,43 @@
 }
 .filter-bar input {
   padding: 0.5rem;
+  padding-left: 3rem;
   width: 100%;
+  position: relative;
 }
 .filter-bar input:focus {
   box-shadow: 0 0 3px 0 #11d611;
   border-color: #83d65a;
 }
+
+.search-icon {
+  position: absolute;
+  width: 50px;
+}
+
 .filter-bar select {
   margin: 1rem 0;
   padding: 0.6em 1.2em;
+  padding-left: 3em;
   background-color: #313131;
   color: white;
   content: "dsefsdefd";
+}
+
+.select-wrapper {
+  display: flex;
+  position: relative;
+  align-items: center;
+}
+.pokeball-icon {
+  position: absolute;
+  left: 180px;
+  top: 28px;
+}
+@media (max-width: 470px) {
+  .pokeball-icon {
+    left: 32vw;
+  }
 }
 
 
