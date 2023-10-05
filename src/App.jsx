@@ -27,7 +27,7 @@ function App() {
     setSearchTerm(term);
     // Perform search logic here and update pokemonData accordingly
     const filteredResults = pokemonData.filter((pokemon) =>
-      pokemon.name.english.toLowerCase().includes(term.toLowerCase())
+      pokemon.name.toLowerCase().includes(term.toLowerCase())
     );
     setPokemonData(filteredResults);
   };
