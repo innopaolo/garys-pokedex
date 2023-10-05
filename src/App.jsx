@@ -16,7 +16,6 @@ function App() {
     fetch(`${apiUrl}/pokemon`)
       .then((response) => response.json())
       .then((data) => {
-        console.log(data);
         setPokemonData(data);
         setOriginalPokemonData(data);
       })
@@ -38,12 +37,10 @@ function App() {
   // Filtering by pokemon type
   const handleFilter = (type) => {
     setFilterType(type);
-    console.log('pokemon data: ' + pokemonData);
     // Perform filtering logic on wether all pokemon should show or just the type
     const filteredResults = originalPokemonData.filter((pokemon) =>
       type === '' || pokemon.type.includes(type)
     );
-    console.log(filteredResults);
     setPokemonData(filteredResults);
   };
 
