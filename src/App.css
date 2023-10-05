@@ -158,11 +158,6 @@
   }
 }
 
-.see-more {
-  display: flex;
-  margin: 1rem auto;
-}
-
 .card-icon {
   width:30px;
   position: absolute;
@@ -172,12 +167,103 @@
   margin-left: 65%;
 }
 
+.see-more {
+  display: flex;
+  margin: 1rem auto;
+}
+
+
+
+.modal {
+  display: none;
+  position: fixed; 
+  z-index: 1; 
+  left: 0;
+  top: 0;
+  width: 100%; 
+  height: 100%; 
+  overflow: auto;
+  background-color: rgba(0,0,0,0.7);
+}
+.modal-content {
+  margin: 2vw auto auto; 
+  padding: 20px;
+  width: 80%;
+  max-width: 600px; 
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  border-radius: 5px;
+  background-color: #fff;
+  border-radius: 8px;
+}
+.modal-image {
+  width: 30vw;
+  display: flex;
+  margin: -100px auto;
+  z-index: 2;
+  position: relative;
+}
+@media (max-width: 900px) {
+  .modal-image {
+    width: 60vw;
+  }
+}
+
+.top-modal {
+  position: relative;
+  margin: -20px;
+  height: 200px;
+  border-top-left-radius:  8px;
+  border-top-right-radius:  8px;
+  z-index: 1;
+}
+.top-modal img {
+  position: absolute;
+  top: 1rem;
+  left: 1rem;
+  width: 40px;
+}
+.top-modal h2 {
+  position: absolute;
+  right: 1rem;
+  top: 1rem;
+}
+
+.card-descript {
+  position: relative;
+  font-size: 1.2rem;
+  z-index: 3;
+  margin-top: 4rem;
+}
+
+/* Close Button */
+.close {
+  color: #aaa;
+  float: right;
+  font-size: 28px;
+}
+
+.close:hover,
+.close:focus {
+  text-decoration: none;
+  cursor: pointer;
+}
+
+/* Responsive Design */
+@media (max-width: 600px) {
+  .modal-content {
+    width: 90%;
+  }
+}
+
+
+
+
 .Normal-type {
   background-image: linear-gradient(135deg, #cbd6c6 0%, #f0f4ec 100%);
 }
 
 .Fire-type {
-  background-image: linear-gradient(135deg, #f4b084 0%, #f7d2c1 100%);
+  background-image: linear-gradient(135deg, #fcad79 0%, #f7d2c1 100%);
 }
 
 .Water-type {
@@ -189,7 +275,7 @@
 }
 
 .Grass-type {
-  background-image: linear-gradient(135deg, #9fd0a1 0%, #d7e4cc 100%);
+  background-image: linear-gradient(135deg, #99dc9b 0%, #d7e4cc 100%);
 }
 
 .Ice-type {
@@ -213,11 +299,11 @@
 }
 
 .Psychic-type {
-  background-image: linear-gradient(135deg, #f89aad 0%, #fcd8e5 100%);
+  background-image: linear-gradient(135deg, #f68fa3 0%, #ebc7d4 100%);
 }
 
 .Bug-type {
-  background-image: linear-gradient(135deg, #c5ce84 0%, #e2e8b1 100%);
+  background-image: linear-gradient(135deg, #bfc87b 0%, #f4fbc4 100%);
 }
 
 .Rock-type {
@@ -237,9 +323,9 @@
 }
 
 .Steel-type {
-  background-image: linear-gradient(135deg, #d0d0d8 0%, #eaeaea 100%);
+  background-image: linear-gradient(135deg, #c0c0d9 0%, #eaeaea 100%);
 }
 
 .Fairy-type {
-  background-image: linear-gradient(135deg, #ddb2c7 0%, #f6e3eb 100%);
+  background-image: linear-gradient(135deg, #ebbfd5 0%, #e3d2d9 100%);
 }

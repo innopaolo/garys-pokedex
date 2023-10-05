@@ -1,7 +1,7 @@
 import React from 'react';
 import PokemonCard from './PokemonCard';
 
-function PokemonList({ pokemonData }) {
+function PokemonList({ pokemonData, handleCardClick }) {
   return (
     <div className="pokemon-list">
       {pokemonData.map((pokemon) => (
@@ -11,6 +11,7 @@ function PokemonList({ pokemonData }) {
           name={pokemon.name}
           image={pokemon.thumbnail}
           type={pokemon.type}
+          onClick={() => handleCardClick(pokemon)}
         />
       ))}
     </div>
