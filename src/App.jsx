@@ -6,6 +6,9 @@ import FilterBar from './FilterBar';
 const apiUrl = 'http://localhost:3000/api';
 
 function App() {
+  const [displayedPokemonCount, setDisplayedPokemonCount] = useState(15); // Initially display 10 Pokémon cards
+  const increment = 15; // Increments when "see more" is clicked
+
   const [originalPokemonData, setOriginalPokemonData] = useState([]); // Immutable data to filter from
   const [pokemonData, setPokemonData] = useState([]); // Dynamically changes and will be displayed
   const [searchTerm, setSearchTerm] = useState('');
@@ -32,6 +35,7 @@ function App() {
       pokemon.name.toLowerCase().includes(term.toLowerCase())
     );
     setPokemonData(filteredResults);
+    setDisplayedPokemonCount(15); // Reset display count
   };
 
   // Filtering by pokemon type
@@ -42,6 +46,12 @@ function App() {
       type === '' || pokemon.type.includes(type)
     );
     setPokemonData(filteredResults);
+    setDisplayedPokemonCount(15); // Reset display count
+  };
+
+  // Shows more pokemon
+  const handleSeeMoreClick = () => {
+    setDisplayedPokemonCount((prevCount) => prevCount + increment);
   };
 
   return (
@@ -55,7 +65,10 @@ function App() {
       {pokemonData.length === 0 ? (
         <p>&nbsp;&nbsp;No Pokémon found!</p>
       ) : (
-        <PokemonList pokemonData={pokemonData} />
+        <PokemonList pokemonData={pokemonData.slice(0, displayedPokemonCount)} />
+      )}
+       {displayedPokemonCount < pokemonData.length && (
+        <button className='see-more' onClick={handleSeeMoreClick}>See More</button>
       )}
     </div>
   );

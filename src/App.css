@@ -158,6 +158,11 @@
   }
 }
 
+.see-more {
+  display: flex;
+  margin: 1rem auto;
+}
+
 .card-icon {
   width:30px;
   position: absolute;
