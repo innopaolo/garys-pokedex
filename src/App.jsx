@@ -6,7 +6,8 @@ import FilterBar from './FilterBar';
 const apiUrl = 'http://localhost:3000/api';
 
 function App() {
-  const [pokemonData, setPokemonData] = useState([]);
+  const [originalPokemonData, setOriginalPokemonData] = useState([]); // Immutable data to filter from
+  const [pokemonData, setPokemonData] = useState([]); // Dynamically changes and will be displayed
   const [searchTerm, setSearchTerm] = useState('');
   const [filterType, setFilterType] = useState('');
 
@@ -15,7 +16,9 @@ function App() {
     fetch(`${apiUrl}/pokemon`)
       .then((response) => response.json())
       .then((data) => {
+        console.log(data);
         setPokemonData(data);
+        setOriginalPokemonData(data);
       })
       .catch((error) => {
         console.error('Error fetching data:', error);
@@ -26,7 +29,7 @@ function App() {
    const handleSearch = (term) => {
     setSearchTerm(term);
     // Perform search logic here and update pokemonData accordingly
-    const filteredResults = pokemonData.filter((pokemon) =>
+    const filteredResults = originalPokemonData.filter((pokemon) =>
       pokemon.name.toLowerCase().includes(term.toLowerCase())
     );
     setPokemonData(filteredResults);
@@ -35,10 +38,12 @@ function App() {
   // Filtering by pokemon type
   const handleFilter = (type) => {
     setFilterType(type);
+    console.log('pokemon data: ' + pokemonData);
     // Perform filtering logic on wether all pokemon should show or just the type
-    const filteredResults = pokemonData.filter((pokemon) =>
+    const filteredResults = originalPokemonData.filter((pokemon) =>
       type === '' || pokemon.type.includes(type)
     );
+    console.log(filteredResults);
     setPokemonData(filteredResults);
   };
 
