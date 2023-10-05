@@ -8,9 +8,9 @@ function PokemonList({ pokemonData }) {
       {pokemonData.map((pokemon) => (
         <PokemonCard
           key={pokemon.id}
-          name={pokemon.name.english}
-          image="https://raw.githubusercontent.com/fanzeyi/pokemon.json/master/thumbnails/001.png"
-          type={pokemon.type[0]}
+          name={pokemon.name}
+          image={pokemon.sprite}
+          type={pokemon.type}
         />
       ))}
     </div>

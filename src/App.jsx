@@ -1,33 +1,45 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import './App.css';
 import PokemonList from './PokemonList';
 import FilterBar from './FilterBar';
-import dummyPokemonData from './dummyPokemonData';
+
+const apiUrl = 'http://localhost:3000/api';
 
 function App() {
-  const [filteredData, setFilteredData] = useState(dummyPokemonData);
+  const [pokemonData, setPokemonData] = useState([]);
   const [searchTerm, setSearchTerm] = useState('');
   const [filterType, setFilterType] = useState('');
+
+  useEffect(() => {
+    // Fetch data from Express.js backend when the component mounts
+    fetch(`${apiUrl}/pokemon`)
+      .then((response) => response.json())
+      .then((data) => {
+        setPokemonData(data);
+      })
+      .catch((error) => {
+        console.error('Error fetching data:', error);
+      });
+  }, []); // Empty dependency array means this effect runs once when the component mounts
 
   // Filtering by search term
    const handleSearch = (term) => {
     setSearchTerm(term);
-    // Perform search logic here and update filteredData accordingly
-    const filteredResults = dummyPokemonData.filter((pokemon) =>
+    // Perform search logic here and update pokemonData accordingly
+    const filteredResults = pokemonData.filter((pokemon) =>
       pokemon.name.english.toLowerCase().includes(term.toLowerCase())
     );
-    setFilteredData(filteredResults);
+    setPokemonData(filteredResults);
   };
 
   // Filtering by pokemon type
   const handleFilter = (type) => {
     setFilterType(type);
-    console.log(type);
     // Perform filtering logic on wether all pokemon should show or just the type
-    const filteredResults = dummyPokemonData.filter((pokemon) =>
+    const filteredResults = pokemonData.filter((pokemon) =>
       type === '' || pokemon.type.includes(type)
     );
-    setFilteredData(filteredResults);
+    setPokemonData(filteredResults);
   };
 
   return (
@@ -38,10 +50,10 @@ function App() {
         <p>(that stupid Ash Ketchum can&apos;t afford Ha Ha!)</p>
       </div>
       <FilterBar onSearch={handleSearch} onFilter={handleFilter} />
-      {filteredData.length === 0 ? (
+      {pokemonData.length === 0 ? (
         <p>&nbsp;&nbsp;No Pokémon found!</p>
       ) : (
-        <PokemonList pokemonData={filteredData} />
+        <PokemonList pokemonData={pokemonData} />
       )}
     </div>
   );
