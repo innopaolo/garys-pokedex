@@ -81,7 +81,6 @@
   padding-left: 3em;
   background-color: #313131;
   color: white;
-  content: "dsefsdefd";
 }
 
 .select-wrapper {
@@ -94,9 +93,30 @@
   left: 180px;
   top: 28px;
 }
+
 @media (max-width: 470px) {
   .pokeball-icon {
     left: 32vw;
+    top: 25px;
+    width: 30px;
+  }
+  .filter-bar input,
+  .filter-bar button {
+    font-size: 0.8rem;
+    height: 100%;
+  }
+  .filter-bar input {
+    padding-left: 2rem;
+  }
+  .search-icon {
+    width: 35px;
+  }
+  .filter-bar select {
+    padding: 0.4em 1em;
+    padding-left: 3em;
+  }
+  .select-wrapper {
+    font-size: 0.8rem;
   }
 }
 
@@ -115,6 +135,106 @@
 }
 
 .pokemon-card {
+  position: relative;
   background-color: yellow;
   padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 0 5px black;
+}
+.pokemon-card:hover {
+  cursor: pointer;
+  animation: bounce 0.3s;
+}
+
+@keyframes bounce {
+  0% {
+    transform: translateY(0); 
+  }
+  50% {
+    transform: translateY(-5px)
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+
+.card-icon {
+  width:30px;
+  position: absolute;
+}
+
+.card-image {
+  margin-left: 65%;
+}
+
+.Normal-type {
+  background-image: linear-gradient(135deg, #cbd6c6 0%, #f0f4ec 100%);
+}
+
+.Fire-type {
+  background-image: linear-gradient(135deg, #f4b084 0%, #f7d2c1 100%);
+}
+
+.Water-type {
+  background-image: linear-gradient(135deg, #8bb2e7 0%, #d5e2f4 100%);
+}
+
+.Electric-type {
+  background-image: linear-gradient(135deg, #f2e46a 0%, #f7f0d2 100%);
+}
+
+.Grass-type {
+  background-image: linear-gradient(135deg, #9fd0a1 0%, #d7e4cc 100%);
+}
+
+.Ice-type {
+  background-image: linear-gradient(135deg, #b8ebef 0%, #f0f7f7 100%);
+}
+
+.Fighting-type {
+  background-image: linear-gradient(135deg, #e88c86 0%, #f5d3d0 100%);
+}
+
+.Poison-type {
+  background-image: linear-gradient(135deg, #c88fb7 0%, #f5d2ea 100%);
+}
+
+.Ground-type {
+  background-image: linear-gradient(135deg, #d8bb8c 0%, #f7e9cd 100%);
+}
+
+.Flying-type {
+  background-image: linear-gradient(135deg, #c7aae3 0%, #f3e3f7 100%);
+}
+
+.Psychic-type {
+  background-image: linear-gradient(135deg, #f89aad 0%, #fcd8e5 100%);
+}
+
+.Bug-type {
+  background-image: linear-gradient(135deg, #c5ce84 0%, #e2e8b1 100%);
+}
+
+.Rock-type {
+  background-image: linear-gradient(135deg, #cec4a0 0%, #e8e3cc 100%);
+}
+
+.Ghost-type {
+  background-image: linear-gradient(135deg, #9c8bb1 0%, #d6d2e7 100%);
+}
+
+.Dragon-type {
+  background-image: linear-gradient(135deg, #a692f8 0%, #f0edfc 100%);
+}
+
+.Dark-type {
+  background-image: linear-gradient(135deg, #a8a4a0 0%, #e1dfdd 100%);
+}
+
+.Steel-type {
+  background-image: linear-gradient(135deg, #d0d0d8 0%, #eaeaea 100%);
+}
+
+.Fairy-type {
+  background-image: linear-gradient(135deg, #ddb2c7 0%, #f6e3eb 100%);
 }
