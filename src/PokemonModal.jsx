@@ -1,6 +1,17 @@
-import React from 'react';
+import React, {useState, useEffect } from 'react';
 
 function PokemonModal({ pokemon, onClose, isOpen }) {
+  const [isLoading, setIsLoading] = useState(true);
+  const [loadedImage, setLoadedImage] = useState(null);
+
+  useEffect(() => {
+    const img = new Image();
+    img.src = pokemon.image;
+    img.onload = () => {
+        setLoadedImage(img.src);
+        setIsLoading(false);
+    };
+  }, [pokemon.image]);
 
   const modalStyle = {
     display: isOpen ? 'block' : 'none',
@@ -15,7 +26,12 @@ function PokemonModal({ pokemon, onClose, isOpen }) {
             <img className='type-icon' src={`./src/assets/${typeClass}.svg`} alt="type icon" />
             <h2>{pokemon.name}</h2>
         </div>
-        <img className="modal-image" src={pokemon.image} alt="pokemon" />
+
+        {isLoading && <div className="loading-screen"></div>}
+        {loadedImage && !isLoading && (
+            <img className="modal-image" src={pokemon.image} alt="pokemon" />
+        )}
+
         <div className="card-descript">
             <p>HP: {pokemon.hp}</p>
             <p>ATTACK: {pokemon.attack}</p>
