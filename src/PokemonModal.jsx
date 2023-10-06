@@ -1,7 +1,7 @@
 import React, {useState, useEffect } from 'react';
 import { deletePokemonById } from './api-utils.js';
 
-function PokemonModal({ pokemon, onClose, isOpen }) {
+function PokemonModal({ pokemon, onClose, isOpen, onDelete }) {
   const [isLoading, setIsLoading] = useState(true);
   const [loadedImage, setLoadedImage] = useState(null);
   const [isConfirmationOpen, setIsConfirmationOpen] = useState(false);
@@ -29,9 +29,15 @@ function PokemonModal({ pokemon, onClose, isOpen }) {
   };
 
   const handleConfirmDelete = () => {
-    deletePokemonById(pokemon.id);
-    setIsConfirmationOpen(false);
-    onClose();
+    deletePokemonById(pokemon.id)
+        .then(() => {
+            onDelete(pokemon.id);
+            setIsConfirmationOpen(false);
+            onClose();
+        })
+        .catch((error) => {
+            console.error('Error deleting Pokémon:', error);
+        });
   };
 
   const handleCancelDelete = () => {

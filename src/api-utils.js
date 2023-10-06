@@ -1,5 +1,7 @@
+export const apiUrl = "http://localhost:3000/api";
+
 export function createNewPokemon(pokemonData) {
-    fetch('/api/pokemon', {
+    fetch('/pokemon', {
         method: 'POST',
         headers: {
         'Content-Type': 'application/json',
@@ -20,7 +22,7 @@ export function createNewPokemon(pokemonData) {
 
   
 export function updatePokemonById(id, updatedPokemonData) {
-    fetch(`/api/pokemon/${id}`, {
+    fetch(`/pokemon/${id}`, {
         method: 'PUT',
         headers: {
         'Content-Type': 'application/json',
@@ -41,7 +43,7 @@ export function updatePokemonById(id, updatedPokemonData) {
   
 
 export function deletePokemonById(id) {
-    fetch(`/api/pokemon/${id}`, {
+    return fetch(`${apiUrl}/pokemon/${id}`, {
       method: 'DELETE',
     })
       .then((response) => {

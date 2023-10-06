@@ -3,8 +3,8 @@ import './App.css';
 import PokemonList from './PokemonList';
 import FilterBar from './FilterBar';
 import PokemonModal from './PokemonModal';
+import { apiUrl } from './api-utils.js';
 
-const apiUrl = 'http://localhost:3000/api';
 
 function App() {
   const [displayedPokemonCount, setDisplayedPokemonCount] = useState(15); // Initially display 10 Pokémon cards
@@ -46,7 +46,7 @@ function App() {
   // Filtering by pokemon type
   const handleFilter = (type) => {
     setFilterType(type);
-    // Perform filtering logic on wether all pokemon should show or just the type
+    // Perform filtering logic on whether all pokemon should show or just the type
     const filteredResults = originalPokemonData.filter((pokemon) =>
       type === '' || pokemon.type.includes(type)
     );
@@ -71,6 +71,12 @@ function App() {
     setSelectedPokemon(null);
   };
 
+  // Function to delete pokemon from frontend state
+  const handlePokemonDeletion = (pokemonId) => {
+    setPokemonData((prevData) => prevData.filter((p) => p.id !== pokemonId));
+    setOriginalPokemonData((prevData) => prevData.filter((p) => p.id !== pokemonId));
+  };
+
   return (
     <div className="app">
       <img className='img-header' src="/pokeheader.png" alt="pokedex header" />
@@ -85,7 +91,12 @@ function App() {
       )}
 
       {isModalOpen && selectedPokemon && (
-        <PokemonModal pokemon={selectedPokemon} onClose={handleCloseModal} isOpen={isModalOpen} />
+        <PokemonModal 
+          pokemon={selectedPokemon} 
+          onClose={handleCloseModal} 
+          isOpen={isModalOpen} 
+          onDelete={handlePokemonDeletion} 
+        />
       )}
 
       {displayedPokemonCount < pokemonData.length && (

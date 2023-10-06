@@ -10,7 +10,6 @@ function FilterBar({ onSearch, onFilter }) {
 
   const handleFilterChange = (e) => {
     const firstLetterCapital = e.target.value.charAt(0).toUpperCase() + e.target.value.slice(1);
-    console.log(firstLetterCapital);
     setFilterType(e.target.value);
     onFilter(firstLetterCapital);
   };
