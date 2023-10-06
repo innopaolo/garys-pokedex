@@ -20,7 +20,7 @@ function App() {
   const [isModalOpen, setIsModalOpen] = useState(false);
 
   useEffect(() => {
-    // Fetch data from Express.js backend when the component mounts
+    // Fetch data from Express backend when the component mounts
     fetch(`${apiUrl}/pokemon`)
       .then((response) => response.json())
       .then((data) => {
@@ -76,7 +76,6 @@ function App() {
       <img className='img-header' src="/pokeheader.png" alt="pokedex header" />
       <div className='header-descript'>
         <p>Gary&apos;s <span>super special limited edition</span> pokédex</p>
-        <p>(that stupid Ash Ketchum can&apos;t afford Ha Ha!)</p>
       </div>
       <FilterBar onSearch={handleSearch} onFilter={handleFilter} />
       {pokemonData.length === 0 ? (
