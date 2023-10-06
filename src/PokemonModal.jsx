@@ -1,10 +1,10 @@
 import React, {useState, useEffect } from 'react';
-// import { deletePokemonByID } from './api-utils';
+import { deletePokemonById } from './api-utils.js';
 
 function PokemonModal({ pokemon, onClose, isOpen }) {
   const [isLoading, setIsLoading] = useState(true);
   const [loadedImage, setLoadedImage] = useState(null);
-//   const [isConfirmationOpen, setIsConfirmationOpen] = useState(false);
+  const [isConfirmationOpen, setIsConfirmationOpen] = useState(false);
 
   // When pokemon image is loaded from database, replace the loading pokeball
   useEffect(() => {
@@ -24,15 +24,19 @@ function PokemonModal({ pokemon, onClose, isOpen }) {
   // Grabs the first type of the pokemon if there are two
   const typeClass = pokemon.type.split(', ')[0];
 
-//   const handleConfirmDelete = () => {
-//     deletePokemonById(pokemon.id);
-//     setIsConfirmationOpen(false);
-//     onClose();
-//   };
+  const handleDeleteClick = () => {
+    setIsConfirmationOpen(true);
+  };
 
-//   const handleCancelDelete = () => {
-//     setIsConfirmationOpen(false);
-//   };
+  const handleConfirmDelete = () => {
+    deletePokemonById(pokemon.id);
+    setIsConfirmationOpen(false);
+    onClose();
+  };
+
+  const handleCancelDelete = () => {
+    setIsConfirmationOpen(false);
+  };
 
   return (
     <div className="modal" style={modalStyle}>
@@ -52,11 +56,22 @@ function PokemonModal({ pokemon, onClose, isOpen }) {
             <p>HP: {pokemon.hp}</p>
             <p>ATTACK: {pokemon.attack}</p>
             <p>DEFENSE: {pokemon.defense}</p>
-            <div className='delete-pokemon'>
+            <div className='delete-pokemon' onClick={handleDeleteClick} >
                 Delete
             </div>
         </div>
         <button className='close' onClick={onClose}>Close</button>
+
+        {/* Confirmation Modal inside modal-content */}
+        {isConfirmationOpen && (
+            <div className="confirmation-modal">
+            <p>Delete {pokemon.name} from the database?</p>
+                <div>
+                    <button onClick={handleConfirmDelete}>Yes</button>
+                    <button onClick={handleCancelDelete}>No</button>
+                </div>
+            </div>
+        )}
       </div>
     </div>
   );
