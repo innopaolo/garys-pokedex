@@ -9,20 +9,20 @@ export function createNewPokemon(pokemonData) {
         body: JSON.stringify(pokemonData),
     })
         .then((response) => {
-        if (response.status === 201) {
-            console.log('Pokémon created successfully');
-        } else {
-            console.error('Failed to create Pokémon');
-        }
+            if (response.status === 201) {
+                console.log('Pokémon created successfully');
+            } else {
+                console.error('Failed to create Pokémon');
+            }
         })
         .catch((error) => {
-        console.error('Error creating Pokémon:', error);
+            console.error('Error creating Pokémon:', error);
         });
 }
 
   
 export function updatePokemonById(id, updatedPokemonData) {
-    fetch(`/pokemon/${id}`, {
+    return fetch(`${apiUrl}/pokemon/${id}`, {
         method: 'PUT',
         headers: {
         'Content-Type': 'application/json',
@@ -30,14 +30,14 @@ export function updatePokemonById(id, updatedPokemonData) {
         body: JSON.stringify(updatedPokemonData),
     })
         .then((response) => {
-        if (response.status === 200) {
-            console.log('Pokémon updated successfully');
-        } else {
-            console.error('Failed to update Pokémon');
-        }
+            if (response.status === 200) {
+                console.log('Pokémon updated successfully');
+            } else {
+                console.error('Failed to update Pokémon');
+            }
         })
         .catch((error) => {
-        console.error('Error updating Pokémon:', error);
+            console.error('Error updating Pokémon:', error);
         });
 }
   

@@ -262,8 +262,32 @@
   cursor: pointer;
 }
 
+.delete-pokemon,
+.update-pokemon {
+  background-color: rgb(195, 78, 78);
+  width: fit-content;
+  padding: 0.1rem 0.8rem;
+  color: white;
+  border-radius: 4px;
+  margin-top: 0.4rem;
+  font-size: 1rem;
+}
+.delete-pokemon:hover {
+  cursor: pointer;
+  background-color: rgb(203, 118, 118);
+}
 
-.confirmation-modal {
+.update-pokemon {
+  background-color: rgb(74, 165, 62);
+}
+.update-pokemon:hover {
+  cursor: pointer;
+  background-color: rgb(74, 165, 62, 0.8);
+}
+
+
+.confirmation-modal,
+.update-form {
   position: absolute;
   bottom: 10%;
   z-index: 99;
@@ -275,7 +299,12 @@
   text-align: center;
   box-shadow: 0 0 10px black;
 }
-.confirmation-modal div {
+.update-form {
+  background-color: rgb(74, 165, 62);
+  bottom: 15%;
+}
+.confirmation-modal div,
+.update-form div {
   display: flex;
   justify-content: center;
   gap: 20px;
@@ -283,6 +312,9 @@
 }
 .confirmation-modal button {
   border: 1px solid green;
+}
+.update-form button {
+  font-size: 0.8rem;
 }
 
 
@@ -352,19 +384,7 @@
 
 
 
-.delete-pokemon {
-  background-color: rgb(195, 78, 78);
-  width: fit-content;
-  padding: 0.1rem 0.8rem;
-  color: white;
-  border-radius: 4px;
-  margin-top: 0.4rem;
-  font-size: 1rem;
-}
-.delete-pokemon:hover {
-  cursor: pointer;
-  background-color: rgb(203, 118, 118);
-}
+
 
 
 

@@ -77,6 +77,28 @@ function App() {
     setOriginalPokemonData((prevData) => prevData.filter((p) => p.id !== pokemonId));
   };
 
+  // Function to update pokemon's frontend data
+  const handlePokemonUpdate = (updatedPokemon) => {
+    // Find the index of the updated Pokemon in data
+    const index = pokemonData.findIndex((p) => p.id === updatedPokemon.id);
+  
+    if (index !== -1) {
+      const updatedData = [...pokemonData];
+      updatedData[index] = updatedPokemon;
+  
+      // Update the state with the new data
+      setPokemonData(updatedData);
+    }
+  };
+
+  // Function to reload modal when data is updated
+  const reload = () => {
+    setIsModalOpen(false);
+    setTimeout(() => {
+      setIsModalOpen(true);
+    }, 1);
+  };
+
   return (
     <div className="app">
       <img className='img-header' src="/pokeheader.png" alt="pokedex header" />
@@ -95,7 +117,9 @@ function App() {
           pokemon={selectedPokemon} 
           onClose={handleCloseModal} 
           isOpen={isModalOpen} 
-          onDelete={handlePokemonDeletion} 
+          onDelete={handlePokemonDeletion}
+          onUpdate={handlePokemonUpdate} 
+          reload={reload}
         />
       )}
 
