@@ -1,7 +1,7 @@
 import React, {useState, useEffect } from 'react';
 import { deletePokemonById, updatePokemonById } from './api-utils.js';
 
-function PokemonModal({ pokemon, onClose, isOpen, onDelete, onUpdate }) {
+function PokemonModal({ pokemon, onClose, onDelete, onUpdate }) {
   const [isLoading, setIsLoading] = useState(true);
   const [loadedImage, setLoadedImage] = useState(null);
   const [isConfirmationOpen, setIsConfirmationOpen] = useState(false);
@@ -86,17 +86,12 @@ function PokemonModal({ pokemon, onClose, isOpen, onDelete, onUpdate }) {
   const handleUpdateCancel = () => {
     setIsUpdateOpen(false);
   };
-
-  // Dynamically keeps the modal display status
-  const modalStyle = {
-    display: isOpen ? 'block' : 'none',
-  };
     
   // Grabs the first type of the pokemon if there are two
   const typeClass = pokemon.type.split(', ')[0];
 
   return (
-    <div className="modal" style={modalStyle}>
+    <div className="modal">
       <div className={`modal-content`}>
         <div className={`top-modal ${typeClass}-type`}>
             <img className='type-icon' src={`./src/assets/${typeClass}.svg`} alt="type icon" />
@@ -110,14 +105,18 @@ function PokemonModal({ pokemon, onClose, isOpen, onDelete, onUpdate }) {
         )}
 
         <div className="card-descript">
-            <p>HP: {pokemon.hp}</p>
-            <p>ATTACK: {pokemon.attack}</p>
-            <p>DEFENSE: {pokemon.defense}</p>
-            <div className='update-pokemon' onClick={handleUpdateClick}>
-                Update
+            <div>
+                <p>HP: {pokemon.hp}</p>
+                <p>ATTACK: {pokemon.attack}</p>
+                <p>DEFENSE: {pokemon.defense}</p>
             </div>
-            <div className='delete-pokemon' onClick={handleDeleteClick} >
-                Delete
+            <div>
+                <div className='update-pokemon' onClick={handleUpdateClick}>
+                    Update
+                </div>
+                <div className='delete-pokemon' onClick={handleDeleteClick} >
+                    Delete
+                </div>
             </div>
         </div>
         <button className='close' onClick={onClose}>Close</button>

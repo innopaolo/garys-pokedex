@@ -3,6 +3,7 @@ import './App.css';
 import PokemonList from './PokemonList';
 import FilterBar from './FilterBar';
 import PokemonModal from './PokemonModal';
+import PokemonAdd from './PokemonAdd';
 import { apiUrl } from './api-utils.js';
 
 
@@ -18,6 +19,7 @@ function App() {
   // State for selected Pokemon and modal
   const [selectedPokemon, setSelectedPokemon] = useState(null); 
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const [isBlueLightClicked, setIsBlueLightClicked] = useState(false);
 
   useEffect(() => {
     // Fetch data from Express backend when the component mounts
@@ -68,6 +70,7 @@ function App() {
   // Function to close the modal
   const handleCloseModal = () => {
     setIsModalOpen(false);
+    setIsBlueLightClicked(false);
     setSelectedPokemon(null);
   };
 
@@ -91,16 +94,19 @@ function App() {
     }
   };
 
-  // Function to reload modal when data is updated
-  const reload = () => {
-    setIsModalOpen(false);
-    setTimeout(() => {
-      setIsModalOpen(true);
-    }, 1);
+  // Handle the click on the blue-light element
+  const handleBlueLightClick = () => {
+    setIsBlueLightClicked(true);
+    setIsModalOpen(true);
   };
 
   return (
     <div className="app">
+      <div className="blue-light-container">
+        <div className="blue-light" onClick={handleBlueLightClick}>
+          <div className="light-reflection"></div>
+        </div>
+      </div>
       <img className='img-header' src="/pokeheader.png" alt="pokedex header" />
       <div className='header-descript'>
         <p>Gary&apos;s <span>super special limited edition</span> pokédex</p>
@@ -116,11 +122,13 @@ function App() {
         <PokemonModal 
           pokemon={selectedPokemon} 
           onClose={handleCloseModal} 
-          isOpen={isModalOpen} 
           onDelete={handlePokemonDeletion}
-          onUpdate={handlePokemonUpdate} 
-          reload={reload}
+          onUpdate={handlePokemonUpdate}
         />
+      )}
+
+      {isModalOpen && isBlueLightClicked && (
+        <PokemonAdd onClose={handleCloseModal} />
       )}
 
       {displayedPokemonCount < pokemonData.length && (

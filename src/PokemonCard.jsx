@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react';
 
 function PokemonCard({ id, name, image, type, onClick }) {
-  const typeClass = type.split(', ')[0] + '-type';
   const [isLoading, setIsLoading] = useState(true);
   const [loadedImage, setLoadedImage] = useState(null);
 
@@ -13,6 +12,9 @@ function PokemonCard({ id, name, image, type, onClick }) {
       setIsLoading(false);
     };
   }, [image]);
+
+  // Edit type parameter to have the right class name format
+  const typeClass = type.split(', ')[0] + '-type';
 
   return (
     <div className={`pokemon-card ${typeClass}`} onClick={onClick}>

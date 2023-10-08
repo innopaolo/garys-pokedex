@@ -28,6 +28,7 @@ button {
   font-family: inherit;
   cursor: pointer;
   transition: border-color 0.25s;
+  border: 1px solid green;
 }
 button:hover {
   background-color: #48544b;;
@@ -38,3 +39,21 @@ button:focus-visible {
   outline: #83d65a 4px auto -webkit-focus-ring-color;
 }
 
+select {
+  cursor: pointer;
+  outline: none;
+  font-size: 1rem;
+  border: 0;
+  font-family: inherit;
+  margin: 1rem 0;
+  padding: 0.6em 1.2em;
+  padding-left: 3em;
+  background-color: #313131;
+  color: white;
+}
+@media (max-width: 470px) {
+  select {
+    padding: 0.4em 1em;
+    padding-left: 3em;
+  }
+}
