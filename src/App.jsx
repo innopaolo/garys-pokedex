@@ -4,7 +4,7 @@ import PokemonList from './PokemonList';
 import FilterBar from './FilterBar';
 import PokemonModal from './PokemonModal';
 import PokemonAdd from './PokemonAdd';
-import { apiUrl, fetchData } from './api-utils.js';
+import { fetchData } from './api-utils.js';
 
 
 function App() {
