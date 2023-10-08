@@ -4,6 +4,7 @@ function PokemonCard({ id, name, image, type, onClick }) {
   const [isLoading, setIsLoading] = useState(true);
   const [loadedImage, setLoadedImage] = useState(null);
 
+  // When pokemon image is loaded from database, replace the loading pokeball
   useEffect(() => {
     const img = new Image();
     img.src = image;

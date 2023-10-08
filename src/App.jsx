@@ -4,7 +4,7 @@ import PokemonList from './PokemonList';
 import FilterBar from './FilterBar';
 import PokemonModal from './PokemonModal';
 import PokemonAdd from './PokemonAdd';
-import { apiUrl } from './api-utils.js';
+import { apiUrl, fetchData } from './api-utils.js';
 
 
 function App() {
@@ -21,18 +21,21 @@ function App() {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [isBlueLightClicked, setIsBlueLightClicked] = useState(false);
 
+  const [isNewPokemonAdded, setIsNewPokemonAdded] = useState(false);
+
+
+
+  // Function to fetch data from the Express backend and update state
   useEffect(() => {
-    // Fetch data from Express backend when the component mounts
-    fetch(`${apiUrl}/pokemon`)
-      .then((response) => response.json())
-      .then((data) => {
-        setPokemonData(data);
-        setOriginalPokemonData(data);
-      })
-      .catch((error) => {
-        console.error('Error fetching data:', error);
-      });
+    fetchData(setPokemonData, setOriginalPokemonData);
   }, []); // Empty dependency array means this effect runs once when the component mounts
+
+  // Reloads pokedex data every time a new pokemon is added.
+  // This ensures the new pokemon will show up on search
+  // and filter without reloading the website.
+  useEffect(() => {
+    fetchData(setPokemonData, setOriginalPokemonData);  
+  }, [isNewPokemonAdded]);
 
   // Filtering by search term
    const handleSearch = (term) => {
@@ -53,7 +56,7 @@ function App() {
       type === '' || pokemon.type.includes(type)
     );
     setPokemonData(filteredResults);
-    setDisplayedPokemonCount(15); // Reset display count
+    setDisplayedPokemonCount(15); // Reset how many pokemon will show up initially
   };
 
   // Shows more pokemon
@@ -94,10 +97,15 @@ function App() {
     }
   };
 
-  // Handle the click on the blue-light element
   const handleBlueLightClick = () => {
     setIsBlueLightClicked(true);
     setIsModalOpen(true);
+  };
+
+  //Function to add a new pokemon to the frontend state
+  const handlePokemonAdd = (newPokemon) => {
+    setPokemonData((prevData) => [...prevData, newPokemon]);
+    setIsNewPokemonAdded(true);
   };
 
   return (
@@ -128,7 +136,7 @@ function App() {
       )}
 
       {isModalOpen && isBlueLightClicked && (
-        <PokemonAdd onClose={handleCloseModal} />
+        <PokemonAdd onClose={handleCloseModal} onCreate={handlePokemonAdd} />
       )}
 
       {displayedPokemonCount < pokemonData.length && (

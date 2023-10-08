@@ -1,7 +1,21 @@
 export const apiUrl = "http://localhost:3000/api";
 
+
+// Function to fetch data from the Express backend and update state
+export function fetchData(setPokemonData, setOriginalPokemonData) {
+    fetch(`${apiUrl}/pokemon`)
+      .then((response) => response.json())
+      .then((data) => {
+        setPokemonData(data);
+        setOriginalPokemonData(data);
+      })
+      .catch((error) => {
+        console.error('Error fetching data:', error);
+      });
+}
+
 export function createNewPokemon(pokemonData) {
-    fetch('/pokemon', {
+    return fetch(`${apiUrl}/pokemon`, {
         method: 'POST',
         headers: {
         'Content-Type': 'application/json',
