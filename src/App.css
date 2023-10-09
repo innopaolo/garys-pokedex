@@ -459,6 +459,17 @@
   }
 }
 
+.rebuild-btn {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  color: rgb(225, 218, 218);
+  background-color: rgb(209, 121, 121);
+  padding: 0.4rem 0.8rem;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
 @media (max-width: 600px) {
   .blue-light-container {
     top: 5px;
@@ -474,11 +485,14 @@
     height: 10px;
     width: 10px;
   }
+  .rebuild-btn {
+    position: absolute;
+    top: 10px;
+    right: 5px;
+    padding: 0.2rem 0.4rem;
+    font-size: 0.8rem;
+  }
 }
-
-
-
-
 
 
 

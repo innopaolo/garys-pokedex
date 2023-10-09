@@ -115,11 +115,17 @@ function App() {
           <div className="light-reflection"></div>
         </div>
       </div>
+
+      <div className='rebuild-btn'>Rebuild</div>
+
       <img className='img-header' src="/pokeheader.png" alt="pokedex header" />
+
       <div className='header-descript'>
         <p>Gary&apos;s <span>super special limited edition</span> pokédex</p>
       </div>
+
       <FilterBar onSearch={handleSearch} onFilter={handleFilter} />
+
       {pokemonData.length === 0 ? (
         <p>&nbsp;&nbsp;No Pokémon found!</p>
       ) : (

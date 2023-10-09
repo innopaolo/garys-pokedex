@@ -1,4 +1,7 @@
 # Pokedex 
+
+<img src="./public/pokedex-sample.png" alt="pokedex preview" width="700">
+
 ## created with React + Vite
 
 
