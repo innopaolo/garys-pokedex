@@ -1,9 +1,9 @@
-export const apiUrl = "http://localhost:3000/api";
+export const apiUrl = "http://localhost:3000";
 
 
 // Function to fetch data from the Express backend and update state
 export function fetchData(setPokemonData, setOriginalPokemonData) {
-    fetch(`${apiUrl}/pokemon`)
+    fetch(`${apiUrl}/api/pokemon`)
       .then((response) => response.json())
       .then((data) => {
         setPokemonData(data);
@@ -15,7 +15,7 @@ export function fetchData(setPokemonData, setOriginalPokemonData) {
 }
 
 export function createNewPokemon(pokemonData) {
-    return fetch(`${apiUrl}/pokemon`, {
+    return fetch(`${apiUrl}/api/pokemon`, {
         method: 'POST',
         headers: {
         'Content-Type': 'application/json',
@@ -36,7 +36,7 @@ export function createNewPokemon(pokemonData) {
 
   
 export function updatePokemonById(id, updatedPokemonData) {
-    return fetch(`${apiUrl}/pokemon/${id}`, {
+    return fetch(`${apiUrl}/api/pokemon/${id}`, {
         method: 'PUT',
         headers: {
         'Content-Type': 'application/json',
@@ -57,7 +57,7 @@ export function updatePokemonById(id, updatedPokemonData) {
   
 
 export function deletePokemonById(id) {
-    return fetch(`${apiUrl}/pokemon/${id}`, {
+    return fetch(`${apiUrl}/api/pokemon/${id}`, {
       method: 'DELETE',
     })
       .then((response) => {
@@ -70,5 +70,22 @@ export function deletePokemonById(id) {
       .catch((error) => {
         console.error('Error deleting Pokémon:', error);
       });
+}
+
+
+export function rebuildPokedexData() {
+    return fetch(`${apiUrl}/reset`, {
+        method: 'POST',
+    })
+        .then((response) => {
+            if (response.status === 200) {
+                console.log('Pokedex reset successfully');
+            } else {
+                console.error('Error resetting Pokedex');
+            }
+        })
+        .catch((error) => {
+            console.error('Network error:', error);
+        });
 }
   

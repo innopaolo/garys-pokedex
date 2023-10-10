@@ -4,7 +4,7 @@ import PokemonList from './PokemonList';
 import FilterBar from './FilterBar';
 import PokemonModal from './PokemonModal';
 import PokemonAdd from './PokemonAdd';
-import { fetchData } from './api-utils.js';
+import { fetchData, rebuildPokedexData } from './api-utils.js';
 
 
 function App() {
@@ -108,6 +108,17 @@ function App() {
     setIsNewPokemonAdded(true);
   };
 
+  //Function to reset the data by rebuilding the database
+  const handleRebuild = () => {
+    rebuildPokedexData()
+      .then(() => {
+          window.location.reload();
+          alert('Rebuild succesful');
+      }).catch((error) => {
+          console.error('Error rebuilding Pokedex:', error);
+      });
+  };
+
   return (
     <div className="app">
       <div className="blue-light-container">
@@ -116,7 +127,7 @@ function App() {
         </div>
       </div>
 
-      <div className='rebuild-btn'>Rebuild</div>
+      <div className='rebuild-btn' onClick={handleRebuild}>Rebuild</div>
 
       <img className='img-header' src="/pokeheader.png" alt="pokedex header" />
 
