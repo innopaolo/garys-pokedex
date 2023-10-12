@@ -52,6 +52,5 @@ select {
 @media (max-width: 470px) {
   select {
     padding: 0.4em 1em;
-    padding-left: 3em;
   }
 }
