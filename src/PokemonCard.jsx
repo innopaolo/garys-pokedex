@@ -19,7 +19,7 @@ function PokemonCard({ id, name, image, type, onClick }) {
 
   return (
     <div className={`pokemon-card ${typeClass}`} onClick={onClick}>
-      <img className="card-icon" src="./dist/pokeball-card.png" alt="" />
+      <img className="card-icon" src="/pokeball-card.png" alt="" />
       <p>&nbsp;&nbsp;&nbsp;#{id}</p>
 
       {isLoading && <div className="loading-screen move-load"></div>}

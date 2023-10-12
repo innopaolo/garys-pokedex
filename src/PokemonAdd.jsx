@@ -129,7 +129,7 @@ function PokemonAdd({ onClose, onCreate }) {
           </button>
         </form>
 
-        <img className="gary" src="./dist/gary-oak.png" alt="Gary Oak" />
+        <img className="gary" src="/gary-oak.png" alt="Gary Oak" />
 
         <button className="close" onClick={onClose}>
           Close

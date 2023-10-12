@@ -100,7 +100,7 @@ function PokemonModal({ pokemon, onClose, onDelete, onUpdate }) {
         <div className={`top-modal ${typeClass}-type`}>
           <img
             className="type-icon"
-            src={`./dist/${typeClass}.svg`}
+            src={`/${typeClass}.svg`}
             alt="type icon"
           />
           <h2>{pokemon.name}</h2>

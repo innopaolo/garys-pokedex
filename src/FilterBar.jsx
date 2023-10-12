@@ -29,11 +29,7 @@ function FilterBar({ onSearch, onFilter }) {
           value={searchTerm}
           onChange={handleSearchChange}
         />
-        <img
-          className="search-icon"
-          src="./dist/search.png"
-          alt="magnifying glass"
-        />
+        <img className="search-icon" src="/search.png" alt="magnifying glass" />
         <button>Search</button>
       </form>
 
@@ -60,11 +56,7 @@ function FilterBar({ onSearch, onFilter }) {
           <option value="steel">Steel</option>
           <option value="fairy">Fairy</option>
         </select>
-        <img
-          className="pokeball-icon"
-          src="./dist/poke-icon.png"
-          alt="pokeball"
-        />
+        <img className="pokeball-icon" src="/poke-icon.png" alt="pokeball" />
       </div>
     </div>
   );
