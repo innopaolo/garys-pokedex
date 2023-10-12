@@ -1,0 +1,71 @@
+.Normal-type {
+  background-image: linear-gradient(135deg, #cbd6c6 0%, #f0f4ec 100%);
+}
+
+.Fire-type {
+  background-image: linear-gradient(135deg, #fcad79 0%, #f7d2c1 100%);
+}
+
+.Water-type {
+  background-image: linear-gradient(135deg, #8bb2e7 0%, #d5e2f4 100%);
+}
+
+.Electric-type {
+  background-image: linear-gradient(135deg, #f2e46a 0%, #f7f0d2 100%);
+}
+
+.Grass-type {
+  background-image: linear-gradient(135deg, #99dc9b 0%, #d7e4cc 100%);
+}
+
+.Ice-type {
+  background-image: linear-gradient(135deg, #b8ebef 0%, #f0f7f7 100%);
+}
+
+.Fighting-type {
+  background-image: linear-gradient(135deg, #e88c86 0%, #f5d3d0 100%);
+}
+
+.Poison-type {
+  background-image: linear-gradient(135deg, #c88fb7 0%, #f5d2ea 100%);
+}
+
+.Ground-type {
+  background-image: linear-gradient(135deg, #d8bb8c 0%, #f7e9cd 100%);
+}
+
+.Flying-type {
+  background-image: linear-gradient(135deg, #c7aae3 0%, #f3e3f7 100%);
+}
+
+.Psychic-type {
+  background-image: linear-gradient(135deg, #f68fa3 0%, #ebc7d4 100%);
+}
+
+.Bug-type {
+  background-image: linear-gradient(135deg, #bfc87b 0%, #f4fbc4 100%);
+}
+
+.Rock-type {
+  background-image: linear-gradient(135deg, #cec4a0 0%, #e8e3cc 100%);
+}
+
+.Ghost-type {
+  background-image: linear-gradient(135deg, #9c8bb1 0%, #d6d2e7 100%);
+}
+
+.Dragon-type {
+  background-image: linear-gradient(135deg, #a692f8 0%, #f0edfc 100%);
+}
+
+.Dark-type {
+  background-image: linear-gradient(135deg, #a8a4a0 0%, #e1dfdd 100%);
+}
+
+.Steel-type {
+  background-image: linear-gradient(135deg, #c0c0d9 0%, #eaeaea 100%);
+}
+
+.Fairy-type {
+  background-image: linear-gradient(135deg, #ebbfd5 0%, #e3d2d9 100%);
+}

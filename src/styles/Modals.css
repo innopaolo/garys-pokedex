@@ -1,0 +1,147 @@
+.modal {
+  position: fixed;
+  z-index: 2;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0, 0, 0, 0.7);
+}
+.modal-content {
+  position: relative;
+  margin: 2vw auto auto;
+  padding: 20px;
+  width: 80%;
+  max-width: 600px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  border-radius: 5px;
+  background-color: #fff;
+  border-radius: 8px;
+}
+.modal-image {
+  width: 30vw;
+  display: flex;
+  margin: -100px auto;
+  z-index: 3;
+  position: relative;
+}
+@media (max-width: 900px) {
+  .modal-image {
+    width: 50vw;
+  }
+}
+@media (max-width: 600px) {
+  .modal-content {
+    width: 90%;
+  }
+  .modal-image {
+    width: 60vw;
+  }
+}
+
+.top-modal {
+  position: relative;
+  margin: -20px;
+  height: 200px;
+  border-top-left-radius: 8px;
+  border-top-right-radius: 8px;
+  z-index: 2;
+}
+.top-modal img {
+  position: absolute;
+  top: 1rem;
+  left: 1rem;
+  width: 40px;
+}
+.top-modal h2 {
+  position: absolute;
+  right: 1rem;
+  top: 1rem;
+}
+
+.card-descript {
+  position: relative;
+  font-size: 1.2rem;
+  z-index: 4;
+  margin-top: 4rem;
+  display: flex;
+  justify-content: space-between;
+}
+@media (max-width: 900px) {
+  .card-descript {
+    margin-top: 6rem;
+  }
+}
+@media (max-width: 500px) {
+  .card-descript {
+    font-size: 1rem;
+  }
+}
+
+.close {
+  color: #aaa;
+  float: right;
+  font-size: 28px;
+}
+.close:hover,
+.close:focus {
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.delete-pokemon,
+.update-pokemon {
+  background-color: rgb(195, 78, 78);
+  width: fit-content;
+  padding: 0.1rem 0.8rem;
+  color: white;
+  border-radius: 4px;
+  margin-top: 0.4rem;
+  font-size: 1rem;
+}
+.delete-pokemon:hover {
+  cursor: pointer;
+  background-color: rgb(203, 118, 118);
+}
+
+.update-pokemon {
+  background-color: rgb(74, 165, 62);
+}
+.update-pokemon:hover {
+  cursor: pointer;
+  background-color: rgb(74, 165, 62, 0.8);
+}
+
+.confirmation-modal,
+.update-form {
+  position: absolute;
+  bottom: 10%;
+  z-index: 99;
+  padding: 1rem;
+  background-color: rgb(209, 123, 123);
+  width: 80%;
+  max-width: 400px;
+  border-radius: 8px;
+  text-align: center;
+  box-shadow: 0 0 10px black;
+}
+.confirmation-modal div,
+.update-form div {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  margin-top: 10px;
+}
+.update-form button {
+  font-size: 0.8rem;
+}
+.update-form input,
+.create-pokemon input {
+  padding: 0.2rem 0.4rem;
+  margin-bottom: 0.5rem;
+  outline: none;
+  background-color: rgb(228, 251, 195);
+  border: 0;
+  font-family: inherit;
+}

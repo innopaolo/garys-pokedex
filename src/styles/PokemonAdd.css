@@ -1,0 +1,74 @@
+.create-pokemon {
+  position: relative;
+  background-image: linear-gradient(
+    145deg,
+    rgb(250, 245, 245) 50%,
+    rgb(210, 166, 166) 50%
+  );
+}
+.create-pokemon h1,
+.create-pokemon p {
+  margin-top: 1rem;
+}
+.create-pokemon select {
+  font-size: 0.8rem;
+  margin: 0;
+}
+.create-pokemon form div {
+  display: flex;
+  flex-direction: column;
+  width: 200px;
+  margin-bottom: 1rem;
+}
+.gary {
+  position: absolute;
+  bottom: 50px;
+  right: 10%;
+  width: 30%;
+}
+
+.blue-light-container {
+  position: absolute;
+  top: 15px;
+  left: 15px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 60px;
+  width: 60px;
+  border: 2px solid black;
+  border-radius: 50%;
+  background-color: white;
+  cursor: pointer;
+}
+
+.blue-light {
+  height: 50px;
+  width: 50px;
+  border-radius: 50%;
+  border: 2px solid black;
+  background-color: #288dc0;
+  animation: glow 1.4s infinite;
+}
+
+.light-reflection {
+  height: 15px;
+  width: 15px;
+  position: relative;
+  top: 7px;
+  left: 10px;
+  border-radius: 50%;
+  background-color: #a6cefb;
+}
+
+@keyframes glow {
+  0% {
+    opacity: 0.6;
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0.6;
+  }
+}

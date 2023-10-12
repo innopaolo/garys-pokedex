@@ -1,0 +1,63 @@
+.filter-bar {
+  margin: 2.5rem 1rem 1rem;
+  border-radius: 3px;
+}
+
+.filter-bar form {
+  width: 100%;
+  display: flex;
+}
+
+.filter-bar input {
+  background-color: rgb(202, 230, 160);
+  outline: none;
+  font-size: 1rem;
+  border: 0;
+  font-family: inherit;
+  padding: 0.5rem;
+  padding-left: 3rem;
+  width: 100%;
+  position: relative;
+}
+.filter-bar input:focus {
+  box-shadow: 0 0 3px 0 #11d611;
+  border-color: #83d65a;
+}
+
+.search-icon {
+  position: absolute;
+  width: 50px;
+}
+
+.select-wrapper {
+  display: flex;
+  position: relative;
+  align-items: center;
+}
+.pokeball-icon {
+  position: absolute;
+  left: 180px;
+  top: 28px;
+}
+
+@media (max-width: 470px) {
+  .pokeball-icon {
+    left: 32vw;
+    top: 25px;
+    width: 30px;
+  }
+  .filter-bar input,
+  .filter-bar button {
+    font-size: 0.8rem;
+    height: 100%;
+  }
+  .filter-bar input {
+    padding-left: 2rem;
+  }
+  .search-icon {
+    width: 35px;
+  }
+  .select-wrapper {
+    font-size: 0.8rem;
+  }
+}
