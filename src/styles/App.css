@@ -2,6 +2,10 @@ body {
   color: black;
 }
 
+input {
+  color: black;
+}
+
 .app {
   position: relative;
   background-color: rgb(204, 76, 76);
