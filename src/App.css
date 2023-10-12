@@ -340,10 +340,6 @@
 
 
 
-
-
-
-
 .loading-screen {
   display: flex;
   margin: 0 auto;
@@ -468,6 +464,17 @@
   padding: 0.4rem 0.8rem;
   border-radius: 10px;
   cursor: pointer;
+}
+
+.rebuild-modal {
+  background-color: rgb(209, 121, 121);
+  margin-top: 10rem;
+}
+.rebuild-modal  div {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  margin-top: 1rem;
 }
 
 @media (max-width: 600px) {

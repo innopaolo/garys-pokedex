@@ -20,6 +20,7 @@ function App() {
   const [selectedPokemon, setSelectedPokemon] = useState(null); 
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [isBlueLightClicked, setIsBlueLightClicked] = useState(false);
+  const [isRebuildClicked, setIsRebuildClicked] = useState(false);
 
   const [isNewPokemonAdded, setIsNewPokemonAdded] = useState(false);
 
@@ -74,6 +75,7 @@ function App() {
   const handleCloseModal = () => {
     setIsModalOpen(false);
     setIsBlueLightClicked(false);
+    setIsRebuildClicked(false);
     setSelectedPokemon(null);
   };
 
@@ -108,6 +110,13 @@ function App() {
     setIsNewPokemonAdded(true);
   };
 
+
+  // Function to open the modal for rebuild
+  const handleRebuildCLick = () => {
+    setIsModalOpen(true);
+    setIsRebuildClicked(true);
+  };
+
   //Function to reset the data by rebuilding the database
   const handleRebuild = () => {
     rebuildPokedexData()
@@ -127,7 +136,7 @@ function App() {
         </div>
       </div>
 
-      <div className='rebuild-btn' onClick={handleRebuild}>Rebuild</div>
+      <div className='rebuild-btn' onClick={handleRebuildCLick}>Rebuild</div>
 
       <img className='img-header' src="/pokeheader.png" alt="pokedex header" />
 
@@ -154,6 +163,20 @@ function App() {
 
       {isModalOpen && isBlueLightClicked && (
         <PokemonAdd onClose={handleCloseModal} onCreate={handlePokemonAdd} />
+      )}
+
+      {isModalOpen && isRebuildClicked && (
+        <div className='modal'>
+          <div className='modal-content rebuild-modal'>
+            <p>
+              You are about to revert the pokédex data to its original form. Proceed?
+            </p>
+            <div>
+              <button onClick={handleRebuild}>Yesh</button>
+              <button onClick={handleCloseModal}>Nah</button>
+            </div>
+          </div>
+        </div>
       )}
 
       {displayedPokemonCount < pokemonData.length && (

@@ -78,11 +78,7 @@ export function rebuildPokedexData() {
         method: 'POST',
     })
         .then((response) => {
-            if (response.status === 200) {
-                console.log('Pokedex reset successfully');
-            } else {
-                console.error('Error resetting Pokedex');
-            }
+            console.log('Pokedex reset successfully');
         })
         .catch((error) => {
             console.error('Network error:', error);
