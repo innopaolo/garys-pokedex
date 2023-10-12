@@ -31,7 +31,7 @@ function FilterBar({ onSearch, onFilter }) {
         />
         <img
           className="search-icon"
-          src="./public/search.png"
+          src="./dist/search.png"
           alt="magnifying glass"
         />
         <button>Search</button>
@@ -62,7 +62,7 @@ function FilterBar({ onSearch, onFilter }) {
         </select>
         <img
           className="pokeball-icon"
-          src="./public/poke-icon.png"
+          src="./dist/poke-icon.png"
           alt="pokeball"
         />
       </div>

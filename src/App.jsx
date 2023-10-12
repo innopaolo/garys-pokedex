@@ -149,7 +149,7 @@ function App() {
 
       <img
         className="img-header"
-        src="./public/pokeheader.png"
+        src="./dist/pokeheader.png"
         alt="pokedex header"
       />
 
