@@ -35,8 +35,12 @@
 }
 .pokeball-icon {
   position: absolute;
+  /* Values when online hosted */
   left: 128px;
   top: 20px;
+  /* Values in development */
+  /* left: 180px;
+  top: 30px; */
 }
 
 @media (max-width: 470px) {

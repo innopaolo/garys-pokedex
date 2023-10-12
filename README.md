@@ -6,14 +6,17 @@ Gary's Pokedex is a web application that allows users to explore, update, and re
 
 ## Preview
 
-<img src="./public/pokedex-sample.png" alt="pokedex preview" width="700">
+[![Demo Pokedex](https://gifyu.com/image/S6cYF)]
+
+Frontend static version: https://garys-pokedex.vercel.app/
+(The pokemon cards will not show up)
 
 ## Get Started
 
-[Click here for this project's backend repo.](https://github.com/innopaolo/pokedex-backend)
+[Ctrl + click here for this project's backend repo.](https://github.com/innopaolo/pokedex-backend)
 
 - Download both this repo and the pokedex backend.
-- Navigate to the source folder of the backend in your terminal and run `pm2 start server.mjs`.
+- Navigate to the folder of the backend in your terminal, then cd into /src and run `pm2 start server.mjs`.
 - Navigate to garys-pokedex in your terminal and run `npm run dev`.
 - Open your web browser and visit `http://localhost:5173/`.
 
@@ -42,6 +45,7 @@ Challenges I faced during development included:
 - Managing the automatic rebuild process and server restarts.
 - Debugging and testing the app to ensure stability.
 - Creating modals became convoluted as I tried to separate concerns.
+- Deploying a full stack project online proved to be more trouble than I expected!
 
 ## Technologies Used
 
