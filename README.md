@@ -6,7 +6,7 @@ Gary's Pokedex is a web application that allows users to explore, update, and re
 
 ## Preview
 
-[![Demo Pokedex](https://gifyu.com/image/S6cYF)]
+[<img src="https://s6.gifyu.com/images/S6cYF.gif">]
 
 Frontend static version: https://garys-pokedex.vercel.app/
 (The pokemon cards will not show up)
