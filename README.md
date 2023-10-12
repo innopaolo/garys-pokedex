@@ -1,43 +1,69 @@
-# Pokedex 
+# Gary's Pokedex
+
+## Introduction
+
+Gary's Pokedex is a web application that allows users to explore, update, and reset Pokemon data. The app provides a user-friendly interface for viewing and interacting with Pokemon records. It is created with React + Vite.
+
+## Preview
 
 <img src="./public/pokedex-sample.png" alt="pokedex preview" width="700">
 
-## created with React + Vite
+## Get Started
 
+[Click here for this project's backend repo.](https://github.com/innopaolo/pokedex-backend)
 
-Currently working on this project. Already served by an API backend created by me, with data fetched from [Fanzeyi's Pokemon JSON repo](https://github.com/fanzeyi/pokemon.json).
+- Download both this repo and the pokedex backend.
+- Navigate to the source folder of the backend in your terminal and run `pm2 start server.mjs`.
+- Navigate to garys-pokedex in your terminal and run `npm run dev`.
+- Open your web browser and visit `http://localhost:5173/`.
 
+## Features
 
+- View a list of Pokemon with details such as name, type, and stats.
+- Click on a Pokemon to view its detailed information.
+- Create new Pokemon entries with custom data. (A hidden digimon lurks in the database!)
+- Update existing Pokemon records to modify stats.
+- Delete unwanted Pokemon entries.
+- Reset the Pokedex data to its initial state by rebuilding the database.
 
-[Click here for this project's backend repo.](https://github.com/innopaolo/pokedex-backend) 
+## What I Learned
 
-Right now, there is the ability to search pokemon by name, filter by type, and click each card to get more info on each pokemon. You can also create and delete pokemon from the database, and update their stats. 
+- Building a full-stack web application using React and Express.js.
+- Working with a relational database (SQLite) for data storage.
+- Implementing RESTful API endpoints for CRUD operations.
+- Handling data fetching from external sources and database operations.
+- Using process management with PM2 for automatic server restarts.
 
-To use, simply follow these instructions:
+## Struggles
 
-- Download this repo and the backend repo(link provided above), and in your terminal go to where you downloaded the pokedex-backend folder.
-- Type `node server.js` in your terminal 
-- In your console, it should say
-    ```console
-    Server is running on port 3000
-    Connected to the database
-    ```
+Challenges I faced during development included:
 
-- Navigate to the downloaded garys-pokedex folder in the terminal.
-- Type `npm run dev` in your terminal. Make sure you have npm installed.
-- In your console, it should say
-    ```console
-    > garys-pokedex@0.0.0 dev
-    > vite
+- Error handling for database operations and network requests.
+- Managing the automatic rebuild process and server restarts.
+- Debugging and testing the app to ensure stability.
+- Creating modals became convoluted as I tried to separate concerns.
 
+## Technologies Used
 
-    VITE v4.4.10  ready in 394 ms
+- Frontend: ![React](https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB)
+- Backend: ![Node.js](https://img.shields.io/badge/Node.js-43853D?style=for-the-badge&logo=node.js&logoColor=white), ![Express.js](https://img.shields.io/badge/Express.js-404D59?style=for-the-badge)
+- Database: ![SQLite](https://img.shields.io/badge/SQLite-07405E?style=for-the-badge&logo=sqlite&logoColor=white)
+- Data Fetching: [node-fetch](https://www.npmjs.com/package/node-fetch)
+- Process Management: [PM2](https://pm2.keymetrics.io/)
 
-    â  Local:   http://localhost:5173/
-    â  Network: use --host to expose
-    â  press h to show help
-    ```
+## Future Enhancements
 
-- Now visit this link and play around with the data: `http://localhost:5173/`
+In the future, I plan to:
 
-Make sure to run the backend server first before running the vite server in garys-pokedex. Enjoy!
+- Implement user authentication for personalized Pokedex management.
+- Enhance the user interface and user experience.
+- Add a sliding menu that will host the user's pokemon party.
+
+## Acknowledgements
+
+- Data fetched from [Fanzeyi's Pokemon JSON repo](https://github.com/fanzeyi/pokemon.json).
+- Font Meme for the [pokemon font](https://fontmeme.com/pokemon-font/).
+
+---
+
+Happy Pokemon exploring!
