@@ -147,7 +147,11 @@ function App() {
         Rebuild
       </div>
 
-      <img className="img-header" src="/pokeheader.png" alt="pokedex header" />
+      <img
+        className="img-header"
+        src="./public/pokeheader.png"
+        alt="pokedex header"
+      />
 
       <div className="header-descript">
         <p>
