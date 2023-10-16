@@ -9,7 +9,7 @@ Gary's Pokedex is a web application that allows users to explore, update, and re
 <img src="./preview.gif" alt="preview">
 
 Frontend static version: https://garys-pokedex.vercel.app/
-(The pokemon cards will not show up)
+(The pokemon cards will not show up. However, you can create a pokemon and delete it. The image link you input will not load as it is tied to the database.)
 
 ## Get Started
 
